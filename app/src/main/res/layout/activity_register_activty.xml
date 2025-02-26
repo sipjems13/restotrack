@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LandingPage"
+    android:orientation="vertical"
+    android:background="@drawable/redbg"
+    >
+    <LinearLayout
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:orientation="vertical"
+        android:layout_marginTop="80dp"
+        android:layout_gravity="center"
+        android:background="@drawable/square1"
+
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="60dp"
+            android:layout_marginTop="4dp"
+
+            android:text="HELLO WELCOME!"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            />
+
+        <TextView
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:text="RestoTrack helps you find restaurants and reserve seats effortlessly, ensuring a hassle-free dining experience."
+            android:textSize="27dp"
+            android:layout_marginLeft="7dp"
+            android:textColor="@color/black"
+
+            />
+    </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/pbutton"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_gravity="center_horizontal"
+        android:textColor="@color/white"
+        android:src="@drawable/person"
+        android:scaleType="fitCenter"
+        />
+
+    <ImageButton
+        android:id="@+id/settingsbutton"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_gravity="center_horizontal"
+        android:textColor="@color/white"
+        android:src="@drawable/setting"
+        android:scaleType="fitCenter"
+        />
+    <ImageButton
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_gravity="center_horizontal"
+        android:textColor="@color/white"
+        android:src="@drawable/dev"
+        android:scaleType="fitCenter"
+        />
+    <ImageButton
+        android:id="@+id/logoutButton"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_gravity="center_horizontal"
+        android:textColor="@color/white"
+        android:src="@drawable/logout"
+        android:scaleType="fitCenter"
+        />
+</LinearLayout>
