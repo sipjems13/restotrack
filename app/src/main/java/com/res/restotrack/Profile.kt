@@ -96,18 +96,5 @@ class Profile : Activity() {
         Toast.makeText(this, "Profile updated successfully", Toast.LENGTH_SHORT).show()
 
 
-        /*logoutButton.setOnClickListener {
-            AlertDialog.Builder(this)
-                .setTitle("Logout")
-                .setMessage("Are you sure you want to logout?")
-                .setPositiveButton("Yes") { _, _ ->
-                    val gotoLogout = Intent(this, Landing::class.java)
-                    startActivity(gotoLogout)
-                    finish() // Closes the current activity
-                }
-                .setNegativeButton("No", null)
-                .show()
-                finish()
-        }*/
     }
 }

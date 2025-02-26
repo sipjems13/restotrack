@@ -9,11 +9,20 @@
     android:orientation="vertical"
     android:background="@color/red"
     >
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Settings"
         android:textSize="43dp"
+        />
+    <Button
+        android:id="@+id/back_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Back"
+        android:textStyle="bold"
+        android:textSize="20dp"
         />
     <Button
         android:id="@+id/setdev"
@@ -35,4 +44,5 @@
         android:layout_marginLeft="95dp"
         android:textStyle="bold"
         />
+
 </LinearLayout>
