@@ -44,24 +44,21 @@ class RestaurantNames : Activity() {
             "Pungko-pungko sa Fuente - Fuente Osmeña - ⭐ 4.1"
         )
 
-        // Connect the list to the ListView using ArrayAdapter
         val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, restaurants)
         listView.adapter = adapter
 
-        // Handle item clicks
         listView.setOnItemClickListener { _, _, position, _ ->
-            if (position == 0) return@setOnItemClickListener  // Skip header
+            if (position == 0) return@setOnItemClickListener
 
-            val selectedRestaurant = restaurants[position - 1]  // Offset by 1 due to header
+            val selectedRestaurant = restaurants[position - 1]
             Toast.makeText(this, "Selected: $selectedRestaurant", Toast.LENGTH_SHORT).show()
 
-            // Send the selected restaurant and date back to Landing
             val resultIntent = Intent().apply {
                 putExtra("RESERVED_DATE", reservedDate)
                 putExtra("SELECTED_RESTAURANT", selectedRestaurant)
             }
             setResult(Activity.RESULT_OK, resultIntent)
-            finish()  // Go back to Landing
+            finish()
         }
     }
 }

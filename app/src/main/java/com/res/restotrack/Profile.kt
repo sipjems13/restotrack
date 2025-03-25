@@ -65,8 +65,8 @@ class Profile : Activity() {
     }
 
     private fun loadProfileData() {
-        val savedUserName = sharedPreferences.getString("username", "Myron Alia")
-        val savedUserEmail = sharedPreferences.getString("useremail", "myronalia@gmail.com")
+        val savedUserName = sharedPreferences.getString("username", "USER NAME")
+        val savedUserEmail = sharedPreferences.getString("useremail", "usernamelastnameemail.com")
 
         userNameTextView.text = savedUserName
         userEmailTextView.text = savedUserEmail

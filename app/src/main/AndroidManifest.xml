@@ -13,6 +13,9 @@
         android:theme="@style/Theme.Restotrack"
         tools:targetApi="31">
         <activity
+            android:name=".CuisineListActivity"
+            android:exported="false" />
+        <activity
             android:name=".RestaurantNames"
             android:exported="false" />
         <activity
