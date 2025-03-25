@@ -87,6 +87,16 @@
         android:textSize="18sp"
         android:textColor="@color/black"
         android:layout_gravity="center" />
+    <TextView
+        android:id="@+id/reservedInfoTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="No reservation made"
+        android:textSize="18sp"
+        android:textColor="@color/black"
+        android:gravity="center" />
+
 
 
 </LinearLayout>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RestaurantNames"
+    android:background="@drawable/redbg">
+
+    <TextView
+        android:id="@+id/restaurant_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Restaurants Available"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp" />
+
+    <ListView
+        android:id="@+id/restaurant_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/restaurant_title"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:divider="@android:color/darker_gray"
+        android:dividerHeight="1dp" />
+</RelativeLayout>

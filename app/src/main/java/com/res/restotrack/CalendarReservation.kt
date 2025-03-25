@@ -25,16 +25,14 @@ class CalendarReservation : Activity() {
             text = "Reserve Date"
         }
 
-        // Add button dynamically
         val layout = findViewById<android.widget.LinearLayout>(R.id.main)
         layout.addView(reserveButton)
 
-        // Set default date
         tvCurrentDate.text = "Select Date"
 
         calendarView.setOnDateChangeListener { _, year, month, dayOfMonth ->
             selectedYear = year
-            selectedMonth = month  // Month is 0-based
+            selectedMonth = month
             selectedDay = dayOfMonth
 
             reservedDate = "${month + 1}/$dayOfMonth/$year"
@@ -42,27 +40,25 @@ class CalendarReservation : Activity() {
             Toast.makeText(this, "Selected Date: $reservedDate", Toast.LENGTH_SHORT).show()
         }
 
-        // Handle Reserve Button Click
         reserveButton.setOnClickListener {
             if (isDateValid()) {
-                val resultIntent = Intent().apply {
+                val intent = Intent(this, RestaurantNames::class.java).apply {
                     putExtra("RESERVED_DATE", reservedDate)
                 }
-                setResult(Activity.RESULT_OK, resultIntent)
-                finish()  // Close the CalendarReservation properly
+                startActivity(intent)
+                finish()
             } else {
                 Toast.makeText(this, "Cannot reserve a past date!", Toast.LENGTH_SHORT).show()
             }
         }
     }
 
-    // Function to check if the selected date is today or later
     private fun isDateValid(): Boolean {
         val currentCalendar = Calendar.getInstance()
         val selectedCalendar = Calendar.getInstance().apply {
             set(selectedYear, selectedMonth, selectedDay)
         }
 
-        return !selectedCalendar.before(currentCalendar)  // Check if the date is today or later
+        return !selectedCalendar.before(currentCalendar)
     }
 }
