@@ -7,7 +7,7 @@ import android.widget.Toast
 import com.res.restotrack.CuisineAdapter
 
 
-class CuisineListActivity : Activity() {
+class   CuisineListActivity : Activity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
