@@ -90,7 +90,10 @@
         android:padding="12dp"
         android:translationY="-105dp"
         android:elevation="6dp"
-        android:textSize="16sp"/>
+        android:textSize="16sp"
+        android:inputType="textPassword"
+        android:hint="password"
+        />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -108,7 +111,9 @@
         android:padding="12dp"
         android:translationY="-90dp"
         android:elevation="6dp"
-        android:textSize="16sp"/>
+        android:textSize="16sp"
+        android:inputType="textPassword"
+        android:hint="password"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -117,7 +122,8 @@
         android:translationY="-155dp"
         android:textStyle="bold"
         android:textSize="15sp"
-        android:fontFamily="sans-serif-light"/>
+        android:fontFamily="sans-serif-light"
+        />
 
     <Button
         android:id="@+id/singup_2"
