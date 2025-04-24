@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <gradient
+        android:type="linear"
+        android:angle="135"
+        android:startColor="#8B0000"
+        android:centerColor="#B22222"
+        android:endColor="#DC143C" />
+
+    <item>
+        <bitmap
+            android:src="@drawable/pattern_overlay"
+            android:tileMode="repeat"
+            android:alpha="0.05"/>
+    </item>
+</shape>
