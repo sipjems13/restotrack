@@ -27,7 +27,7 @@ class Profile : Activity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.profile)
+        setContentView(R.layout.activity_profile)
 
         profilePicture = findViewById(R.id.profile_picture)
         userNameTextView = findViewById(R.id.user_name)
@@ -54,7 +54,7 @@ class Profile : Activity() {
                 .setTitle("Logout")
                 .setMessage("Are you sure you want to logout?")
                 .setPositiveButton("Yes") { _, _ ->
-                    val gotoLogout = Intent(this, LoginActivity::class.java)
+                    val gotoLogout = Intent(this, FillLogin::class.java)
                     startActivity(gotoLogout)
                     finish() // Closes the current activity
                 }
@@ -65,8 +65,8 @@ class Profile : Activity() {
     }
 
     private fun loadProfileData() {
-        val savedUserName = sharedPreferences.getString("username", "USER NAME")
-        val savedUserEmail = sharedPreferences.getString("useremail", "usernamelastnameemail.com")
+        val savedUserName = sharedPreferences.getString("username", "Myron Alia")
+        val savedUserEmail = sharedPreferences.getString("useremail", "myronalia@gmail.com")
 
         userNameTextView.text = savedUserName
         userEmailTextView.text = savedUserEmail

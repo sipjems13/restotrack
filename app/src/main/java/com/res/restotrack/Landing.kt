@@ -16,65 +16,31 @@ class Landing : Activity() {
         const val REQUEST_CODE_RESERVE = 1
     }
 
-    private lateinit var reservedInfoTextView: TextView
+    private lateinit var reservedDateTextView: TextView
 
     @SuppressLint("MissingInflatedId", "WrongViewCast")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_register_activty)
+        setContentView(R.layout.activity_landing)
 
-        val pbut = findViewById<ImageButton>(R.id.pbutton)
-        val settingsButton = findViewById<ImageButton>(R.id.settingsbutton)
-        val logoutButton = findViewById<ImageButton>(R.id.logoutButton)
-        val calendarButton = findViewById<ImageButton>(R.id.calendar)
-        reservedInfoTextView = findViewById(R.id.reservedInfoTextView)
 
-        reservedInfoTextView.text = "No reservation made"
+        val PButton = findViewById<ImageButton>(R.id.PButton) // Calendar button
+        reservedDateTextView = findViewById(R.id.reservedDateTextView)  // Date display TextView
 
-        pbut.setOnClickListener {
+
+
+
+        // Profile Navigation
+        PButton.setOnClickListener {
             Log.e("CSIT284", "Clicked!")
             Toast.makeText(this, "Button is clicked", Toast.LENGTH_SHORT).show()
 
-            val intent = Intent(this, Profile::class.java)
+            val intent = Intent(this, HomePage::class.java)
             startActivity(intent)
-        }
-
-        settingsButton.setOnClickListener {
-            Log.e("Landing", "Settings button clicked!")
-            Toast.makeText(this, "Opening Settings", Toast.LENGTH_SHORT).show()
-
-            val intent = Intent(this, Setting::class.java)
-            startActivity(intent)
-        }
-
-        logoutButton.setOnClickListener {
-            AlertDialog.Builder(this)
-                .setTitle("Logout")
-                .setMessage("Are you sure you want to logout?")
-                .setPositiveButton("Yes") { _, _ ->
-                    val gotoLogout = Intent(this, LoginActivity::class.java)
-                    startActivity(gotoLogout)
-                    finish()
-                }
-                .setNegativeButton("No", null)
-                .show()
-        }
-
-        calendarButton.setOnClickListener {
-            val calendarIntent = Intent(this, CalendarReservation::class.java)
-            startActivityForResult(calendarIntent, REQUEST_CODE_RESERVE)
-        }
-    }
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-
-        if (requestCode == REQUEST_CODE_RESERVE && resultCode == Activity.RESULT_OK) {
-            val reservedDate = data?.getStringExtra("RESERVED_DATE") ?: "No date"
-            val selectedRestaurant = data?.getStringExtra("SELECTED_RESTAURANT") ?: "No restaurant"
-
-            reservedInfoTextView.text = "Reserved: $reservedDate\nPlace: $selectedRestaurant"
-            Toast.makeText(this, "Reservation Successful!", Toast.LENGTH_SHORT).show()
         }
     }
 }
+
+
+
+

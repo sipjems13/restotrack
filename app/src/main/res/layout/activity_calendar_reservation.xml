@@ -1,39 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+ xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:tools="http://schemas.android.com/tools"
+android:id="@+id/main"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+tools:context=".CalendarReservation"
+android:orientation="vertical"
+android:gravity="center"
+android:background="@drawable/redbg">
+
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="RESERVING  CALENDAR"
+    android:textSize="33dp"
+    android:layout_marginTop="80dp"
+    android:textColor="@color/black"
+    android:textStyle="bold"/>
+
+<TextView
+    android:id="@+id/idTVDate"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="20dp"
+    android:text="Reserve a Date"
+    android:textColor="@color/white"
+    android:textSize="20sp"
+    android:textStyle="bold"/>
+
+<CalendarView
+    android:id="@+id/calendarView"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".CalendarReservation"
-    android:orientation="vertical"
-    android:gravity="center"
-    android:background="@drawable/redbg">
+    android:layout_height="wrap_content"
+    android:layout_marginTop="30dp"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="RESERVING  CALENDAR"
-        android:textSize="33dp"
-        android:layout_marginTop="80dp"
-        android:textColor="@color/black"
-        android:textStyle="bold"/>
-
-    <TextView
-        android:id="@+id/idTVDate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="Reserve a Date"
-        android:textColor="@color/white"
-        android:textSize="20sp"
-        android:textStyle="bold"/>
-
-    <CalendarView
-        android:id="@+id/calendarView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"/>
-
+<ImageButton
+    android:id="@+id/CloseC"
+    android:layout_width="25dp"
+    android:layout_height="25dp"
+    android:layout_gravity="center_horizontal"
+    android:textColor="@color/white"
+    android:background="@null"
+    android:src="@drawable/close"
+    android:scaleType="fitCenter"
+    android:elevation="1dp"
+    android:translationY="-590dp"
+    android:translationX="-160dp"
+    />
 
 </LinearLayout>

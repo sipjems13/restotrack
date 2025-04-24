@@ -10,7 +10,7 @@ import android.widget.Toast
 
 class LoginActivity : Activity() {
     override fun onCreate(savedInstanceState: Bundle?) {
-       super.onCreate(savedInstanceState)
+        super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
         val button_register =findViewById<Button>(R.id.button_register)
         button_register.setOnClickListener {
