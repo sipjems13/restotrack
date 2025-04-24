@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#FFFFFF"
+    android:fitsSystemWindows="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:background="#D84040">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/righteous_regular"
+            android:textSize="30sp"
+            android:text="RestoTrack"
+            android:textColor="@android:color/white"
+            android:padding="12dp"/>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="24dp"
+        android:fontFamily="sans-serif-black"
+        android:textSize="23sp"
+        android:text="Want To Book A Reservation?"
+        android:textColor="@android:color/black" />
+
+    <CalendarView
+        android:id="@+id/calendarView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_gravity="center_horizontal"
+        android:scaleX="0.95"
+        android:scaleY="0.95" />
+
+    <Button
+        android:id="@+id/Yes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Proceed"
+        android:textStyle="bold"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:textColor="@android:color/black"
+        android:background="@drawable/button_logout" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:orientation="horizontal"
+        android:background="#D84040"
+        android:gravity="center"
+        android:paddingHorizontal="24dp">
+
+        <ImageButton
+            android:id="@+id/usersbuttonHP"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:background="@null"
+            android:src="@drawable/user2"
+            android:contentDescription="Profile"
+            android:scaleType="fitCenter" />
+
+        <!-- Home Button Placeholder -->
+        <ImageButton
+            android:id="@+id/homeButton"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:background="@null"
+            android:src="@drawable/ic_home"
+            android:contentDescription="Home"
+            android:scaleType="fitCenter" />
+
+        <ImageButton
+            android:id="@+id/settingsbuttonHP"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:background="@null"
+            android:src="@drawable/menu2"
+            android:contentDescription="Settings"
+            android:scaleType="fitCenter" />
+    </LinearLayout>
+
+</LinearLayout>

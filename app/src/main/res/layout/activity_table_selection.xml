@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/tools"
+    android:background="#F5F5F5"
+    android:padding="16dp"
+    app:ignore="NamespaceTypo">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/titleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Select Your Table"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="#D84040"
+            android:layout_gravity="center"
+            android:paddingBottom="16dp"/>
+
+        <GridLayout
+            android:id="@+id/tableGrid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:columnCount="3"
+            android:alignmentMode="alignMargins"
+            android:padding="8dp"
+            android:rowOrderPreserved="false">
+
+            <!-- Table 1 -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="120dp"
+                android:layout_margin="8dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="8dp"
+                android:layout_columnWeight="1">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textStyle="bold"
+                    android:text="Table 1"
+                    android:fontFamily="sans-serif-black"
+                    android:gravity="center"
+                    android:textSize="18sp"
+                    android:textColor="#000000"/>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Table 2 -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="120dp"
+                android:layout_margin="8dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="8dp"
+                android:layout_columnWeight="1">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textStyle="bold"
+                    android:text="Table 2"
+                    android:fontFamily="sans-serif-black"
+                    android:gravity="center"
+                    android:textSize="18sp"
+                    android:textColor="#000000"/>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Table 3 -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="120dp"
+                android:layout_margin="8dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="8dp"
+                android:layout_columnWeight="1">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textStyle="bold"
+                    android:text="Table 3"
+                    android:fontFamily="sans-serif-black"
+                    android:gravity="center"
+                    android:textSize="18sp"
+                    android:textColor="#000000"/>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Table 4 -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="120dp"
+                android:layout_margin="8dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="8dp"
+                android:layout_columnWeight="1">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textStyle="bold"
+                    android:text="Table 4"
+                    android:fontFamily="sans-serif-black"
+                    android:gravity="center"
+                    android:textSize="18sp"
+                    android:textColor="#000000"/>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Table 5 -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="120dp"
+                android:layout_margin="8dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="8dp"
+                android:layout_columnWeight="1">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textStyle="bold"
+                    android:text="Table 5"
+                    android:fontFamily="sans-serif-black"
+                    android:gravity="center"
+                    android:textSize="18sp"
+                    android:textColor="#000000"/>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Table 6 -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="120dp"
+                android:layout_margin="8dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="8dp"
+                android:layout_columnWeight="1">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textStyle="bold"
+                    android:text="Table 6"
+                    android:fontFamily="sans-serif-black"
+                    android:gravity="center"
+                    android:textSize="18sp"
+                    android:textColor="#000000"/>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Table 7 -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="120dp"
+                android:layout_margin="8dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="8dp"
+                android:layout_columnWeight="1">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textStyle="bold"
+                    android:text="Table 7"
+                    android:fontFamily="sans-serif-black"
+                    android:gravity="center"
+                    android:textSize="18sp"
+                    android:textColor="#000000"/>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Table 8 -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="120dp"
+                android:layout_margin="8dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="8dp"
+                android:layout_columnWeight="1">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textStyle="bold"
+                    android:text="Table 8"
+                    android:fontFamily="sans-serif-black"
+                    android:gravity="center"
+                    android:textSize="18sp"
+                    android:textColor="#000000"/>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Table 9 -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="120dp"
+                android:layout_margin="8dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="8dp"
+                android:layout_columnWeight="1">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textStyle="bold"
+                    android:text="Table 9 "
+                    android:fontFamily="sans-serif-black"
+                    android:gravity="center"
+                    android:textSize="18sp"
+                    android:textColor="#000000"/>
+            </androidx.cardview.widget.CardView>
+
+        </GridLayout>
+        <Button
+            android:id="@+id/proceedButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Proceed"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="8dp"
+            android:backgroundTint="#D84040"
+            android:textColor="@android:color/white"
+            android:textStyle="bold" />
+    </LinearLayout>
+</ScrollView>

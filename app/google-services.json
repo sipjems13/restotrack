@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "427418983470",
+    "project_id": "restotrackdatabase",
+    "storage_bucket": "restotrackdatabase.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:427418983470:android:a6b389f4b1325bb1c853bf",
+        "android_client_info": {
+          "package_name": "com.res.restotrack"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCry-cfwDb7DUXTRlwU5gTiaLMcuFXPA7k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

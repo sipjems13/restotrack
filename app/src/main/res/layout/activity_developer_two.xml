@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:fillViewport="true"
+    android:gravity="center"
+    android:background="#FFFFFF"
+    android:padding="16dp">
+
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:translationY="-70dp"
+        android:src="@drawable/devtwo"/>
+
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:text="JOSEPH JAMES BANICO"
+        android:fontFamily="sans-serif-black"
+        android:textSize="25sp"
+        android:translationY="-50dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#D84040"
+        android:text="developer"
+        android:fontFamily="@font/opensans_cbold"
+        android:textSize="25sp"
+        android:translationY="-45dp"
+        />
+    <TextView
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="To create clean, scalable, and user-centric software that drives progress, empowers individuals, and simplifies the way people interact with technology."
+        android:gravity="center"
+        android:textStyle="italic"
+        android:fontFamily="sans-serif-black"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        android:translationY="-25dp"
+        />
+
+    <Button
+        android:id="@+id/prev"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        android:elevation="0dp"
+        android:fontFamily="@font/opensans_cbold"
+        android:padding="0dp"
+        android:text="⤾ Previous Developer"
+        android:textColor="#D84040"
+        android:textSize="20dp"
+        android:textStyle="italic"
+        android:translationY="-10dp" />
+    <ImageButton
+        android:id="@+id/Close2"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_gravity="center_horizontal"
+        android:textColor="@color/white"
+        android:background="@null"
+        android:src="@drawable/close"
+        android:scaleType="fitCenter"
+        android:elevation="1dp"
+        android:translationY="-560dp"
+        android:translationX="-140dp"
+        />
+
+
+</LinearLayout>
