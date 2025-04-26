@@ -74,7 +74,9 @@ dependencies {
     // Firebase libraries
     implementation(libs.firebase.auth.ktx)
     implementation("com.google.firebase:firebase-auth:21.0.5") // Firebase Authentication
-    implementation("com.google.firebase:firebase-core:21.1.0") // Firebase Core
+    implementation("com.google.firebase:firebase-core:21.1.0")
+    implementation(libs.firebase.database.ktx)
+    implementation(libs.firebase.firestore.ktx) // Firebase Core
 
     // Testing libraries
     testImplementation(libs.junit)
