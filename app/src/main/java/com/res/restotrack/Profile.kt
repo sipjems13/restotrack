@@ -100,25 +100,54 @@ class Profile : Activity() {
         val newUserName = editUserName.text.toString().trim()
         val newUserEmail = editEmail.text.toString().trim()
 
-        if (newUserName.isEmpty() || newUserEmail.isEmpty()) {
-            Toast.makeText(this, "Please fill in all fields", Toast.LENGTH_SHORT).show()
+        // Only require the name field to be filled
+        if (newUserName.isEmpty()) {
+            Toast.makeText(this, "Please enter a name", Toast.LENGTH_SHORT).show()
             return
         }
 
         val currentUser = auth.currentUser
         if (currentUser != null) {
-            // Update only display name in Firebase
+            // Create a list to track all update tasks
+            val updateTasks = mutableListOf<com.google.android.gms.tasks.Task<*>>()
+
+            // Update display name
             val profileUpdates = com.google.firebase.auth.UserProfileChangeRequest.Builder()
                 .setDisplayName(newUserName)
                 .build()
+            updateTasks.add(currentUser.updateProfile(profileUpdates))
 
-            currentUser.updateProfile(profileUpdates)
+            // Update email if it has changed
+            if (newUserEmail.isNotEmpty() && newUserEmail != currentUser.email) {
+                updateTasks.add(currentUser.updateEmail(newUserEmail))
+            }
+
+            // Execute all updates
+            com.google.android.gms.tasks.Tasks.whenAll(updateTasks)
                 .addOnCompleteListener { task ->
                     if (task.isSuccessful) {
-                        // Save both name and email to SharedPreferences
-                        saveToSharedPreferences(newUserName, newUserEmail)
+                        // Save to SharedPreferences
+                        saveToSharedPreferences(
+                            newUserName,
+                            if (newUserEmail.isNotEmpty()) newUserEmail else currentUser.email ?: ""
+                        )
+                        Toast.makeText(this, "Profile updated successfully", Toast.LENGTH_SHORT).show()
                     } else {
-                        Toast.makeText(this, "Failed to update profile: ${task.exception?.message}", Toast.LENGTH_SHORT).show()
+                        // Check if the error is due to email update
+                        val error = task.exception
+                        if (error?.message?.contains("email") == true) {
+                            Toast.makeText(
+                                this,
+                                "To update email, please re-authenticate first",
+                                Toast.LENGTH_LONG
+                            ).show()
+                        } else {
+                            Toast.makeText(
+                                this,
+                                "Failed to update profile: ${error?.message}",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        }
                     }
                 }
         }
@@ -135,7 +164,5 @@ class Profile : Activity() {
 
         editUserName.text.clear()
         editEmail.text.clear()
-
-        Toast.makeText(this, "Profile updated successfully", Toast.LENGTH_SHORT).show()
     }
 }

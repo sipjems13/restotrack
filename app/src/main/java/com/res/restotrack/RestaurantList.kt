@@ -47,27 +47,27 @@ class RestaurantList : AppCompatActivity() {
         val sampleRestaurants = listOf(
             Restaurant(
                 id = "1",
-                name = "The Gourmet Kitchen",
-                cuisine = "International",
+                name = "Sugbo Mercado",
+                cuisine = "Local",
                 rating = 4.5f,
                 status = "Open",
-                imageUrl = "https://example.com/restaurant1.jpg"
+                imageUrl = "https://images.squarespace-cdn.com/content/v1/5d7f2d797a64971f017f10ff/2acc09ba-cb96-468f-ad17-2de6a0f55606/03-02+SUGBO+MERCADO+2023+CP.png?format=2500w"
             ),
             Restaurant(
                 id = "2",
-                name = "Sushi Master",
-                cuisine = "Japanese",
+                name = "Mott 32",
+                cuisine = "Chinese ",
                 rating = 4.8f,
                 status = "Open",
-                imageUrl = "https://example.com/restaurant2.jpg"
+                imageUrl = "https://nustar.ph/wp-content/uploads/2023/12/Mott-32-40-2048x1366.jpg"
             ),
             Restaurant(
                 id = "3",
-                name = "Pasta Paradise",
-                cuisine = "Italian",
+                name = "Yappari Steak",
+                cuisine = "Japan",
                 rating = 4.2f,
                 status = "Closed",
-                imageUrl = "https://example.com/restaurant3.jpg"
+                imageUrl = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9BqT3mogc1Qn1s5zg-1Iw23BX7tPWwC3jXNhLOTowh5YNDXMziddUtihlLtqW6Zj7AmY&usqp=CAU"
             )
         )
 
