@@ -80,6 +80,10 @@ dependencies {
     
     implementation("com.google.android.gms:play-services-safetynet:18.0.1")
 
+    // Glide for image loading
+    implementation("com.github.bumptech.glide:glide:4.16.0")
+    annotationProcessor("com.github.bumptech.glide:compiler:4.16.0")
+
     // Testing libraries
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

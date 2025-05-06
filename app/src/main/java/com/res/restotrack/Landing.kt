@@ -17,18 +17,18 @@ class Landing : Activity() {
     }
 
     private lateinit var reservedDateTextView: TextView
+    private lateinit var restaurantNameTextView: TextView
+    private lateinit var restaurantCuisineTextView: TextView
 
     @SuppressLint("MissingInflatedId", "WrongViewCast")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_landing)
 
-
         val PButton = findViewById<ImageButton>(R.id.PButton) // Calendar button
         reservedDateTextView = findViewById(R.id.reservedDateTextView)  // Date display TextView
-
-
-
+        restaurantNameTextView = findViewById(R.id.restaurantNameTextView)  // Restaurant name TextView
+        restaurantCuisineTextView = findViewById(R.id.restaurantCuisineTextView)  // Restaurant cuisine TextView
 
         // Profile Navigation
         PButton.setOnClickListener {
@@ -36,7 +36,21 @@ class Landing : Activity() {
             Toast.makeText(this, "Button is clicked", Toast.LENGTH_SHORT).show()
 
             val intent = Intent(this, HomePage::class.java)
-            startActivity(intent)
+            startActivityForResult(intent, REQUEST_CODE_RESERVE)
+        }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == REQUEST_CODE_RESERVE && resultCode == RESULT_OK && data != null) {
+            val restaurantName = data.getStringExtra("restaurantName")
+            val restaurantCuisine = data.getStringExtra("restaurantCuisine")
+            val reservationDate = data.getStringExtra("reservationDate")
+
+            // Update the UI with reservation details
+            reservedDateTextView.text = "Reservation Date: $reservationDate"
+            restaurantNameTextView.text = "Restaurant: $restaurantName"
+            restaurantCuisineTextView.text = "Cuisine: $restaurantCuisine"
         }
     }
 }

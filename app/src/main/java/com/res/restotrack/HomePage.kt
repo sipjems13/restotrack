@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.button.MaterialButton
 
 class HomePage : AppCompatActivity() {
+
     private lateinit var calendarView: CalendarView
     private lateinit var proceedButton: MaterialButton
     private var selectedDate: Long = 0
@@ -34,7 +35,7 @@ class HomePage : AppCompatActivity() {
             if (selectedDate > 0) {
                 val intent = Intent(this, RestaurantList::class.java)
                 intent.putExtra("selectedDate", selectedDate)
-                startActivity(intent)
+                startActivityForResult(intent, 1)
             } else {
                 Toast.makeText(this, "Please select a date first", Toast.LENGTH_SHORT).show()
             }
@@ -42,6 +43,15 @@ class HomePage : AppCompatActivity() {
 
         // Set up bottom navigation click listeners
         setupBottomNavigation()
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == 1 && resultCode == RESULT_OK && data != null) {
+            // Pass the data back to Landing activity
+            setResult(RESULT_OK, data)
+            finish()
+        }
     }
 
     private fun setupBottomNavigation() {
