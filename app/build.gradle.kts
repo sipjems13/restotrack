@@ -66,7 +66,7 @@ dependencies {
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
     implementation(libs.androidx.appcompat)
-    implementation(libs.material)
+    implementation("com.google.android.material:material:1.11.0")
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
     implementation(libs.androidx.gridlayout)
@@ -77,6 +77,8 @@ dependencies {
     implementation("com.google.firebase:firebase-core:21.1.0")
     implementation(libs.firebase.database.ktx)
     implementation(libs.firebase.firestore.ktx) // Firebase Core
+    
+    implementation("com.google.android.gms:play-services-safetynet:18.0.1")
 
     // Testing libraries
     testImplementation(libs.junit)

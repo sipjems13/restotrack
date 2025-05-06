@@ -70,6 +70,11 @@ class CalendarReservation : Activity() {
                 reservationsList.add(reservedDate)
                 reservationsAdapter.notifyDataSetChanged()
                 Toast.makeText(this, "Date reserved!", Toast.LENGTH_SHORT).show()
+
+                // Navigate to CuisineListActivity after saving
+                val intent = Intent(this, CuisineListActivity::class.java)
+                startActivity(intent)
+
             }.addOnFailureListener {
                 Toast.makeText(this, "Reservation failed.", Toast.LENGTH_SHORT).show()
             }
@@ -77,6 +82,7 @@ class CalendarReservation : Activity() {
             Toast.makeText(this, "User not logged in.", Toast.LENGTH_SHORT).show()
         }
     }
+
 
     private fun loadReservations() {
         val user = FirebaseAuth.getInstance().currentUser

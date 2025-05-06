@@ -12,6 +12,10 @@ import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
+import com.res.restotrack.utils.SessionManager
 
 class Profile : Activity() {
 
@@ -24,10 +28,22 @@ class Profile : Activity() {
     private lateinit var logoutButton: Button
     private lateinit var backButton: TextView
     private lateinit var sharedPreferences: SharedPreferences
+    private lateinit var auth: FirebaseAuth
+    private lateinit var sessionManager: SessionManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profile)
+
+        auth = Firebase.auth
+        sessionManager = SessionManager(this)
+
+        // Check if user is logged in
+        if (!sessionManager.isLoggedIn() || auth.currentUser == null) {
+            startActivity(Intent(this, FillLogin::class.java))
+            finish()
+            return
+        }
 
         profilePicture = findViewById(R.id.profile_picture)
         userNameTextView = findViewById(R.id.user_name)
@@ -49,27 +65,34 @@ class Profile : Activity() {
         backButton.setOnClickListener {
             finish()
         }
+        
         logoutButton.setOnClickListener {
             AlertDialog.Builder(this)
                 .setTitle("Logout")
                 .setMessage("Are you sure you want to logout?")
                 .setPositiveButton("Yes") { _, _ ->
+                    // Sign out from Firebase
+                    auth.signOut()
+                    // Clear session
+                    sessionManager.clearSession()
                     val gotoLogout = Intent(this, FillLogin::class.java)
                     startActivity(gotoLogout)
-                    finish() // Closes the current activity
+                    finish()
                 }
                 .setNegativeButton("No", null)
                 .show()
         }
-
     }
 
     private fun loadProfileData() {
-        val savedUserName = sharedPreferences.getString("username", "Myron Alia")
-        val savedUserEmail = sharedPreferences.getString("useremail", "myronalia@gmail.com")
+        val currentUser = auth.currentUser
+        if (currentUser != null) {
+            val savedUserName = sharedPreferences.getString("username", currentUser.displayName ?: "User")
+            val savedUserEmail = sharedPreferences.getString("useremail", currentUser.email ?: "")
 
-        userNameTextView.text = savedUserName
-        userEmailTextView.text = savedUserEmail
+            userNameTextView.text = savedUserName
+            userEmailTextView.text = savedUserEmail
+        }
     }
 
     @SuppressLint("WrongViewCast")
@@ -82,19 +105,37 @@ class Profile : Activity() {
             return
         }
 
+        val currentUser = auth.currentUser
+        if (currentUser != null) {
+            // Update only display name in Firebase
+            val profileUpdates = com.google.firebase.auth.UserProfileChangeRequest.Builder()
+                .setDisplayName(newUserName)
+                .build()
+
+            currentUser.updateProfile(profileUpdates)
+                .addOnCompleteListener { task ->
+                    if (task.isSuccessful) {
+                        // Save both name and email to SharedPreferences
+                        saveToSharedPreferences(newUserName, newUserEmail)
+                    } else {
+                        Toast.makeText(this, "Failed to update profile: ${task.exception?.message}", Toast.LENGTH_SHORT).show()
+                    }
+                }
+        }
+    }
+
+    private fun saveToSharedPreferences(userName: String, userEmail: String) {
         val editor = sharedPreferences.edit()
-        editor.putString("username", newUserName)
-        editor.putString("useremail", newUserEmail)
+        editor.putString("username", userName)
+        editor.putString("useremail", userEmail)
         editor.apply()
 
-        userNameTextView.text = newUserName
-        userEmailTextView.text = newUserEmail
+        userNameTextView.text = userName
+        userEmailTextView.text = userEmail
 
         editUserName.text.clear()
         editEmail.text.clear()
 
         Toast.makeText(this, "Profile updated successfully", Toast.LENGTH_SHORT).show()
-
-
     }
 }

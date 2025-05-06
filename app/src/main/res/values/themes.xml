@@ -1,5 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="Theme.Restotrack" parent="android:Theme.Material.Light.NoActionBar" />
+    <style name="Theme.Restotrack" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">#D84040</item>
+        <item name="colorPrimaryVariant">#B83333</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">#D84040</item>
+        <item name="colorSecondaryVariant">#B83333</item>
+        <item name="colorOnSecondary">@color/white</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <!-- Text colors -->
+        <item name="android:textColorPrimary">#333333</item>
+        <item name="android:textColorSecondary">#666666</item>
+    </style>
 </resources>

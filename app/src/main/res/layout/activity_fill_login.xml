@@ -1,69 +1,98 @@
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center"
-    android:background="#D84040"
-    android:padding="16dp">
-
+    android:background="@color/white">
 
     <ImageView
+        android:id="@+id/logoImage"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="48dp"
+        android:src="@drawable/reslogoc"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/welcomeText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Welcome Back"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:textColor="#333333"
+        android:fontFamily="sans-serif-medium"
+        app:layout_constraintTop_toBottomOf="@id/logoImage"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/emailLayout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:translationY="-120dp"
-        android:src="@drawable/reslogoc"/>
-
-
-
-    <EditText
-        android:id="@+id/username"
-        android:layout_width="300dp"
-        android:layout_height="45dp"
-        android:background="@drawable/edit_text_bg"
-        android:padding="12dp"
-        android:translationY="-120dp"
-        android:elevation="6dp"
-        android:textSize="16sp"/>
-    <TextView
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Email"
-        android:textColor="@color/white"
-        android:translationY="-185dp"
-        android:textStyle="bold"
-        android:textSize="15sp"
-        android:fontFamily="sans-serif-light"/>
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="32dp"
+        android:hint="Email"
+        app:boxStrokeColor="#D84040"
+        app:hintTextColor="#D84040"
+        app:layout_constraintTop_toBottomOf="@id/welcomeText">
 
-    <EditText
-        android:id="@+id/password"
-        android:layout_width="300dp"
-        android:layout_height="45dp"
-        android:background="@drawable/edit_text_bg"
-        android:padding="12dp"
-        android:inputType="textPassword"
-        android:translationY="-90dp"
-        android:elevation="6dp"
-        android:textSize="16sp"/>
-    <TextView
-        android:layout_width="wrap_content"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/username"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
+            android:textSize="16sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/passwordLayout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Password"
-        android:textColor="@color/white"
-        android:translationY="-155dp"
-        android:textStyle="bold"
-        android:textSize="15sp"
-        android:fontFamily="sans-serif-light"/>
-    <Button
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="16dp"
+        android:hint="Password"
+        app:boxStrokeColor="#D84040"
+        app:hintTextColor="#D84040"
+        app:passwordToggleEnabled="true"
+        app:layout_constraintTop_toBottomOf="@id/emailLayout">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:textSize="16sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/loginButton_2"
-        android:layout_width="150dp"
-        android:layout_height="45dp"
-        android:translationY="-50dp"
-        android:background="@drawable/rounded_button_2"
-        android:textSize="20dp"
-        android:fontFamily="sans-serif"
-        android:textStyle="bold"
-        android:text="Login Now"
-        android:elevation="10dp"
-        android:textAllCaps="false"/>
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="32dp"
+        android:text="Sign In"
+        android:textSize="16sp"
+        android:textAllCaps="false"
+        app:cornerRadius="28dp"
+        android:backgroundTint="#D84040"
+        app:layout_constraintTop_toBottomOf="@id/passwordLayout" />
 
-</LinearLayout>
+    <TextView
+        android:id="@+id/forgotPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Forgot Password?"
+        android:textColor="#D84040"
+        android:textSize="14sp"
+        app:layout_constraintTop_toBottomOf="@id/loginButton_2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

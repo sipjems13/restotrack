@@ -1,101 +1,168 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="#FFFFFF"
+    android:background="#FAFAFA"
     android:fitsSystemWindows="true">
 
-    <LinearLayout
+    <!-- Header -->
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="center"
-        android:background="#D84040">
+        android:background="#D84040"
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:fontFamily="@font/righteous_regular"
-            android:textSize="30sp"
+            android:textSize="24sp"
             android:text="RestoTrack"
             android:textColor="@android:color/white"
-            android:padding="12dp"/>
-    </LinearLayout>
+            android:padding="16dp"/>
+    </com.google.android.material.appbar.AppBarLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="24dp"
-        android:fontFamily="sans-serif-black"
-        android:textSize="23sp"
-        android:text="Want To Book A Reservation?"
-        android:textColor="@android:color/black" />
-
-    <CalendarView
-        android:id="@+id/calendarView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:layout_gravity="center_horizontal"
-        android:scaleX="0.95"
-        android:scaleY="0.95" />
-
-    <Button
-        android:id="@+id/Yes"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Proceed"
-        android:textStyle="bold"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="20dp"
-        android:textColor="@android:color/black"
-        android:background="@drawable/button_logout" />
-
-    <View
+    <!-- Main Content -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/mainCard"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"/>
+        android:layout_margin="16dp"
+        android:elevation="6dp"
+        app:cardCornerRadius="24dp"
+        android:background="@android:color/white"
+        app:layout_constraintTop_toBottomOf="@id/appBarLayout"
+        app:layout_constraintBottom_toTopOf="@id/bottomNavContainer">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="24dp"
+            android:background="@android:color/white">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:fontFamily="sans-serif-medium"
+                android:textSize="22sp"
+                android:text="Want To Book A Reservation?"
+                android:textColor="#212121" />
+
+            <CalendarView
+                android:id="@+id/calendarView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:background="@android:color/white"
+                android:elevation="2dp"
+                android:padding="8dp"
+                style="@style/CustomCalendarView" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/Yes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="PROCEED"
+                android:textStyle="bold"
+                android:paddingVertical="16dp"
+                android:textColor="@android:color/white"
+                android:backgroundTint="#D84040"
+                app:cornerRadius="16dp"
+                android:elevation="4dp"
+                android:textAllCaps="true" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- Custom Bottom Navigation -->
     <LinearLayout
+        android:id="@+id/bottomNavContainer"
         android:layout_width="match_parent"
-        android:layout_height="70dp"
+        android:layout_height="56dp"
+        android:background="@color/white"
+        android:elevation="8dp"
         android:orientation="horizontal"
-        android:background="#D84040"
-        android:gravity="center"
-        android:paddingHorizontal="24dp">
+        app:layout_constraintBottom_toBottomOf="parent">
 
-        <ImageButton
-            android:id="@+id/usersbuttonHP"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+        <LinearLayout
+            android:id="@+id/navProfile"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@null"
-            android:src="@drawable/user2"
-            android:contentDescription="Profile"
-            android:scaleType="fitCenter" />
+            android:orientation="vertical"
+            android:gravity="center"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="?attr/selectableItemBackground">
 
-        <!-- Home Button Placeholder -->
-        <ImageButton
-            android:id="@+id/homeButton"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_weight="1"
-            android:background="@null"
-            android:src="@drawable/ic_home"
-            android:contentDescription="Home"
-            android:scaleType="fitCenter" />
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/user2"
+                app:tint="#757575" />
 
-        <ImageButton
-            android:id="@+id/settingsbuttonHP"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Profile"
+                android:textSize="12sp"
+                android:textColor="#757575" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/navHome"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@null"
-            android:src="@drawable/menu2"
-            android:contentDescription="Settings"
-            android:scaleType="fitCenter" />
+            android:orientation="vertical"
+            android:gravity="center"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="?attr/selectableItemBackground">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_home"
+                app:tint="#D84040" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Home"
+                android:textSize="12sp"
+                android:textColor="#D84040" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/navSettings"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="?attr/selectableItemBackground">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/menu2"
+                app:tint="#757575" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Settings"
+                android:textSize="12sp"
+                android:textColor="#757575" />
+        </LinearLayout>
     </LinearLayout>
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
