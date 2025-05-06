@@ -12,6 +12,7 @@ class HomePage : AppCompatActivity() {
 
     private lateinit var calendarView: CalendarView
     private lateinit var proceedButton: MaterialButton
+    private lateinit var backButton: MaterialButton
     private var selectedDate: Long = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,6 +22,7 @@ class HomePage : AppCompatActivity() {
         // Initialize views
         calendarView = findViewById(R.id.calendarView)
         proceedButton = findViewById(R.id.Yes)
+        backButton = findViewById(R.id.backButton)
 
         // Set up calendar listener
         calendarView.setOnDateChangeListener { _, year, month, dayOfMonth ->
@@ -39,6 +41,11 @@ class HomePage : AppCompatActivity() {
             } else {
                 Toast.makeText(this, "Please select a date first", Toast.LENGTH_SHORT).show()
             }
+        }
+
+        // Set up back button click listener
+        backButton.setOnClickListener {
+            finish() // This will return to the Landing activity
         }
 
         // Set up bottom navigation click listeners

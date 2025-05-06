@@ -5,6 +5,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import com.res.restotrack.adapter.RestaurantAdapter
 import com.res.restotrack.data.Restaurant
@@ -15,10 +16,20 @@ class RestaurantList : AppCompatActivity() {
     private lateinit var recyclerView: RecyclerView
     private var selectedDate: Long = 0
     private val database = FirebaseDatabase.getInstance()
+    private lateinit var auth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_restaurant_list)
+
+        auth = FirebaseAuth.getInstance()
+
+        // Check if user is logged in
+        if (auth.currentUser == null) {
+            Toast.makeText(this, "Please log in to make a reservation", Toast.LENGTH_SHORT).show()
+            finish()
+            return
+        }
 
         // Get the selected date from the intent
         selectedDate = intent.getLongExtra("selectedDate", 0)
@@ -73,18 +84,24 @@ class RestaurantList : AppCompatActivity() {
         val dateFormat = SimpleDateFormat("MMM dd, yyyy", Locale.getDefault())
         val formattedDate = dateFormat.format(Date(selectedDate))
 
+        val userId = auth.currentUser?.uid ?: return
+
+        // Create a unique reservation ID
+        val reservationId = database.reference.child("reservations").push().key ?: return
+
         val reservation = hashMapOf(
             "restaurantName" to restaurant.name,
             "restaurantCuisine" to restaurant.cuisine,
             "reservationDate" to formattedDate,
-            "timestamp" to selectedDate
+            "timestamp" to selectedDate,
+            "userId" to userId
         )
 
-        // Get current user ID from your authentication system
-        val userId = "current_user_id" // Replace with actual user ID
-
-        database.reference.child("reservations")
+        // Save under user's reservations
+        database.reference.child("users")
             .child(userId)
+            .child("reservations")
+            .child(reservationId)
             .setValue(reservation)
             .addOnSuccessListener {
                 // Pass data back to Landing activity

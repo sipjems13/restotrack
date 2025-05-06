@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CalendarReservation"
-    android:orientation="vertical"
-    android:gravity="center"
     android:background="@drawable/redbg"
-    android:padding="16dp">
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".CalendarReservation">
 
     <TextView
         android:layout_width="wrap_content"
@@ -28,24 +27,24 @@
         android:text="Reserve a Date"
         android:textColor="@color/white"
         android:textSize="20sp"
-        android:textStyle="bold"/>
+        android:textStyle="bold" />
 
     <CalendarView
         android:id="@+id/calendarView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"/>
+        android:layout_marginTop="30dp" />
 
     <!-- Reserve Date Button -->
     <Button
         android:id="@+id/reserveButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Reserve Date"
+        android:layout_gravity="center"
         android:layout_marginTop="20dp"
         android:padding="12dp"
-        android:textSize="18sp"
-        android:layout_gravity="center"/>
+        android:text="Reserve Date"
+        android:textSize="18sp" />
 
     <!-- ListView to show reservations -->
     <ListView
@@ -55,7 +54,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
         android:background="@android:color/white"
-        android:dividerHeight="1dp"/>
+        android:dividerHeight="1dp" />
 
     <!-- Close Button -->
     <ImageButton
@@ -65,8 +64,7 @@
         android:layout_gravity="end"
         android:layout_marginTop="20dp"
         android:background="@null"
-        android:src="@drawable/close"
-        android:scaleType="fitCenter"
         android:elevation="4dp"
-        />
+        android:scaleType="fitCenter"
+        android:src="@drawable/close" />
 </LinearLayout>
