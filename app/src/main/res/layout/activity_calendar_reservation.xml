@@ -47,6 +47,7 @@
         android:textSize="18sp"
         android:layout_gravity="center"/>
 
+    <!-- ListView to show reservations -->
     <ListView
         android:id="@+id/reservationsListView"
         android:layout_width="match_parent"
@@ -56,6 +57,7 @@
         android:background="@android:color/white"
         android:dividerHeight="1dp"/>
 
+    <!-- Close Button -->
     <ImageButton
         android:id="@+id/CloseC"
         android:layout_width="40dp"
