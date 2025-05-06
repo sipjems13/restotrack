@@ -7,63 +7,66 @@
     android:layout_height="match_parent"
     tools:context=".Landing"
     android:orientation="vertical"
-    android:background="@drawable/redbg"
-    >
+    android:background="@drawable/gradient_red_bg"
+    android:gravity="center_horizontal">
+
     <LinearLayout
-        android:layout_width="250dp"
-        android:layout_height="250dp"
+        android:layout_width="280dp"
+        android:layout_height="280dp"
         android:orientation="vertical"
         android:layout_marginTop="80dp"
-        android:layout_gravity="center"
-        android:background="@drawable/square1"
-
-        >
+        android:background="@drawable/round_white_card"
+        android:padding="16dp"
+        android:elevation="4dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="60dp"
-            android:layout_marginTop="4dp"
-
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="16dp"
             android:text="HELLO WELCOME!"
-            android:textColor="@color/black"
+            android:textColor="#B91C1C"
+            android:textSize="18sp"
             android:textStyle="bold"
-            />
+            android:letterSpacing="0.05" />
 
         <TextView
-            android:layout_width="250dp"
-            android:layout_height="250dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
             android:text="RestoTrack helps you find restaurants and reserve seats effortlessly, ensuring a hassle-free dining experience."
-            android:textSize="27dp"
-            android:layout_marginLeft="7dp"
-            android:textColor="@color/black"
-
-            />
+            android:textSize="20sp"
+            android:textColor="#333333"
+            android:lineSpacingExtra="4dp"
+            android:gravity="center" />
     </LinearLayout>
 
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp">
 
+        <ImageButton
+            android:id="@+id/PButton"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:background="@drawable/circular_button_bg"
+            android:src="@drawable/ic_arrow_forward"
+            android:scaleType="fitCenter"
+            android:padding="16dp"
+            android:elevation="6dp"
+            android:contentDescription="Continue to app" />
+    </FrameLayout>
 
-
-
-    <ImageButton
-        android:id="@+id/PButton"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_gravity="center_horizontal"
-        android:background="@null"
-        android:translationY="80dp"
-        android:src="@drawable/parrow"
-        android:scaleType="fitCenter"
-        />
     <TextView
         android:id="@+id/reservedDateTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="150dp"
+        android:layout_marginTop="100dp"
         android:text="No date reserved"
-        android:textSize="18sp"
-        android:textColor="@color/black"
-        android:layout_gravity="center" />
-
+        android:textSize="16sp"
+        android:textColor="#FFFFFF"
+        android:alpha="0.9"
+        android:letterSpacing="0.03" />
 
 </LinearLayout>
